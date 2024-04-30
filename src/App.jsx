@@ -3,24 +3,20 @@ import './App.css'
 
 
 function App() {
-const [check,setCheck]=useState(false)
-function Open(){
-  setCheck(true)
+  const [check,setCheck]=useState(false)
+  const Dark={color:"gold","background-color":"black","border-color":"gold"}
+  const Light={color:"black","background-color":"white","border-color":"black"}
+
+function theme(){
+  setCheck(!check)
 }
-function Close(){
-  setCheck(false)
-}
-  return (
-    <>
-  <button onClick={Open}>Open model</button>
-  {
-    check ? (
-      <div className='title'>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing <i onClick={Close} class="fa-solid fa-xmark"></i></p>
+
+
+return(
+  <div style={check ? Dark: Light} className='mood'>
+    <button style={check ? Dark: Light} onClick={theme}>White theme</button>
+    <h1>WELCOME TO REACT JS</h1>
   </div>
-    ):""
-  }
-    </>
-  )
+)
 }
 export default App
